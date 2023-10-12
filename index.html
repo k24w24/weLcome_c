@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>weLcome</title>
+        
+        <script type="text/javascript">
+            window.onload=function() {
+                도메인네임 = document.URL
+                도메인네임 = new URL(도메인네임)
+                도메인네임 = 도메인네임.hostname
+                도메인네임 = 도메인네임.replace('www.','')
+                도메인네임 = 도메인네임.replace(
+                                /(.+)\./, 
+                                ii => ii.toUpperCase()
+                            )
+                
+                document.title = 도메인네임
+                document.getElementsByClassName("urL")[0].innerText = 도메인네임
+                
+                메일버튼 = document.getElementsByClassName("maiLto")[0]
+                링크w제목 = 메일버튼.href
+                링크w제목 += '?subject=Question about "'
+                링크w제목 += 도메인네임 +'"'
+                메일버튼.onclick = 
+                    function() {
+                        새탭 = window.open(링크w제목, '_blank')
+                        새탭.focus()
+                        return false
+                    }
+            }
+        </script>
+
+        <style>
+            html,
+            body {
+                margin: 0;
+                background: #eee;
+            }
+            .outer {
+                display: grid;
+                height: 100vh;
+                place-items: center;
+                text-align: center;
+                /* border: 9px solid #999; */
+                /* box-sizing: border-box; */
+            }
+            .weLcome {
+                font-size: 4rem;
+            }
+            .waiting {
+                font-size: 1.8rem;
+            }
+            .urL {
+                font-size: 1.9rem;
+                margin: 3rem 0 2.8rem 0;
+            }
+            .maiLto {
+                font-size: 4rem;
+                line-height: 4rem;
+                text-decoration: none;
+            }
+            .maiL {
+                font-size: 1.3rem;
+                line-height: 1.3;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="outer">
+            <div class="inner">
+                <div class="weLcome">WELCOME</div>
+                <div class="waiting">
+                    I'm waiting for you<br>
+                </div>
+                
+                <div class="urL">잡동산.컴</div>
+                
+                <a href="mailto:kkww@duck.com" class="maiLto">📧</a>
+                <div class="maiL">
+                    Feel free to ask a question<br>
+                    kkww@duck.com
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
